@@ -45,11 +45,19 @@ const speak = () => {
     }
     //make sure it is not an empty string
     if(textInput.value !== '') {
+        //Add background animation 
+        body.style.background = '#141414 url(img/wave.gif)';
+        body.style.backgroundRepeat = 'repeat-x';
+        body.style.backgroundSize = '100% 100%';
+
+
         //Get speak text 
         const speakText = new SpeechSynthesisUtterance(textInput.value);
+
         //Speak end
         speakText.onend = e => {
             console.log('Done speaking...');
+            body.style.background = '#141414';
         }
 
         //Speak error
